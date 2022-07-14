@@ -1,4 +1,4 @@
-package ch.zli.gameapi.user;
+package ch.zli.gameapi.profile;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
