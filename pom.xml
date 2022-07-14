@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ch.zli.gameapi</groupId>
-	<artifactId>authapi</artifactId>
+	<artifactId>gameapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>authapi</name>
 	<description>API project for Spring Boot</description>
