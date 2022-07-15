@@ -15,12 +15,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import ch.zli.gameapi.profile.Profile;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
+
 public class GameapiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GameapiApplication.class, args);
+	}
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
