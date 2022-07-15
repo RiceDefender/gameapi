@@ -46,12 +46,12 @@ public class Account {
         Accountname = accountname;
     }
 
-    /**
-     * FK not implemented yet because classes arent implemented yet.
-     */
-
-
-
+    public Account(String email_Address, String accountname, Character character, Profile profile) {
+        Email_Address = email_Address;
+        Accountname = accountname;
+        this.character = character;
+        this.profile = profile;
+    }
 
     //Getter and Setter
 

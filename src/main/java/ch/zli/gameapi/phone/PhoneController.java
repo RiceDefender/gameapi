@@ -2,6 +2,7 @@ package ch.zli.gameapi.phone;
 
 import java.util.List;
 
+import ch.zli.gameapi.account.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +26,8 @@ public class PhoneController {
 
 	@Autowired
     private PhoneRepository phoneRepository;
+    @Autowired
+    private AccountRepository accountRepository;
 
     public PhoneController(PhoneRepository taskRepository) {
         this.phoneRepository = taskRepository;
@@ -37,8 +40,9 @@ public class PhoneController {
     }
     
 
-    @PostMapping
-    public void addTask(@RequestBody Phone phone) {
+    @PostMapping("/{id}")
+    public void addphone(@PathVariable long id, @RequestBody Phone phone) {
+        phone.setAccountFK(accountRepository.getReferenceById(id));
         phoneRepository.save(phone);
     }
 

@@ -36,6 +36,9 @@ public class GameapiApplication {
 			Profile p = new Profile("profile", "123");
 			Account a = new Account("account0@acc.ac", "acc0");
 			profileRepository.save(p);
+			profileRepository.save(new Profile("root", "123"));
+			profileRepository.save(new Profile("user", "123"));
+			profileRepository.save(new Profile("lou", "123"));
 			accountRepository.save(a);
 			characterRepository.save(new Character("Mudrock", CharacterClass.DEFENDER));
 			phoneRepository.save(new Phone("Gulugulu", PhoneOS.ANDROID, a ) );
