@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ch.zli.gameapi"},{"l":"ch.zli.gameapi.account"},{"l":"ch.zli.gameapi.character"},{"l":"ch.zli.gameapi.phone"},{"l":"ch.zli.gameapi.profile"},{"l":"ch.zli.gameapi.security"}];updateSearchResults();
