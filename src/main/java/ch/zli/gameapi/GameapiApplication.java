@@ -2,6 +2,9 @@ package ch.zli.gameapi;
 
 import ch.zli.gameapi.account.Account;
 import ch.zli.gameapi.account.AccountRepository;
+import ch.zli.gameapi.character.Character;
+import ch.zli.gameapi.character.CharacterClass;
+import ch.zli.gameapi.character.CharacterRepository;
 import ch.zli.gameapi.profile.ProfileRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,11 +21,13 @@ public class GameapiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(ProfileRepository profileRepository, AccountRepository accountRepository) {
+	public CommandLineRunner demo(ProfileRepository profileRepository, AccountRepository accountRepository,
+								  CharacterRepository characterRepository) {
 		return (args) -> {
 
 			profileRepository.save(new Profile("profile", "123"));
 			accountRepository.save(new Account("account0@acc.ac", "acc0"));
+			characterRepository.save(new Character("Mudrock", CharacterClass.DEFENDER));
 		};
 	}
 
