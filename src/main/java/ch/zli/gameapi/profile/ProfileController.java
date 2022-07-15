@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * RestController for
+ * @author RiceDefender
+ * @date 15.07.2022
+ *
+ */
 @RestController
 @RequestMapping("/profiles")
 public class ProfileController {
