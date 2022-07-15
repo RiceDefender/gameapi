@@ -47,7 +47,6 @@ public class PhoneController {
     @PutMapping("/{id}")
     public void editPhone(@PathVariable long id, @RequestBody Phone phone) {
 
-        Assert.notNull(phoneRepository.findById(id).get(), "Phone not found");
         phoneRepository.findById(id).get().setPhoneName(phone.getPhoneName());
         phoneRepository.save(phoneRepository.findById(id).get());
     }

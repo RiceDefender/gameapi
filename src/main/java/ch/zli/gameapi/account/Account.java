@@ -1,6 +1,8 @@
 package ch.zli.gameapi.account;
 
+import ch.zli.gameapi.character.Character;
 import ch.zli.gameapi.phone.Phone;
+import ch.zli.gameapi.profile.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,11 @@ public class Account {
 
     private String Accountname;
 
+    @ManyToOne
+    private Character character;
 
+    @ManyToOne
+    private Profile profile;
 
     //@OneToMany(mappedBy = "account")
     //private List<Phone> phones;
@@ -63,5 +69,21 @@ public class Account {
 
     public void setAccountname(String accountname) {
         Accountname = accountname;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

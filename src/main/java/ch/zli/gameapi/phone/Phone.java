@@ -59,6 +59,14 @@ public class Phone {
         this.os = os;
     }
 
+    public Account getAccountFK() {
+        return accountFK;
+    }
+
+    public void setAccountFK(Account accountFK) {
+        this.accountFK = accountFK;
+    }
+
     @Override
     public String toString() {
         return "Phone{" +
@@ -68,4 +76,5 @@ public class Phone {
                 ", accountFK=" + accountFK +
                 '}';
     }
+
 }
