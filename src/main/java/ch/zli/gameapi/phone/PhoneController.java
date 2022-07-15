@@ -1,0 +1,63 @@
+package ch.zli.gameapi.phone;
+
+import java.util.List;
+
+import ch.zli.gameapi.account.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * RestController for
+ * @author RiceDefender
+ * @date 15.07.2022
+ *
+ */
+@RestController
+@RequestMapping("/phones")
+public class PhoneController {
+
+	@Autowired
+    private PhoneRepository phoneRepository;
+    @Autowired
+    private AccountRepository accountRepository;
+
+    public PhoneController(PhoneRepository taskRepository) {
+        this.phoneRepository = taskRepository;
+    }
+    
+
+    @GetMapping
+    public List<Phone> getTasks() {
+        return phoneRepository.findAll();  //taskRepository.findAll();
+    }
+    
+
+    @PostMapping("/{id}")
+    public void addphone(@PathVariable long id, @RequestBody Phone phone) {
+        phone.setAccountFK(accountRepository.getReferenceById(id));
+        phoneRepository.save(phone);
+    }
+
+
+
+    @PutMapping("/{id}")
+    public void editPhone(@PathVariable long id, @RequestBody Phone phone) {
+
+        phoneRepository.findById(id).get().setPhoneName(phone.getPhoneName());
+        phoneRepository.save(phoneRepository.findById(id).get());
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable long id) {
+        Phone delete = phoneRepository.findById(id).get();
+        phoneRepository.delete(delete);
+    }
+}
