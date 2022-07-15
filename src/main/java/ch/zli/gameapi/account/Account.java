@@ -1,17 +1,15 @@
 package ch.zli.gameapi.account;
 
+import ch.zli.gameapi.phone.Phone;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
 
 
 @Entity
+@Table(name="account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +18,11 @@ public class Account {
     private String Email_Address;
 
     private String Accountname;
+
+
+
+    //@OneToMany(mappedBy = "account")
+    //private List<Phone> phones;
 
     public long getId() {
         return id;

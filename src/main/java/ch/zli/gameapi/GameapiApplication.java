@@ -5,6 +5,9 @@ import ch.zli.gameapi.account.AccountRepository;
 import ch.zli.gameapi.character.Character;
 import ch.zli.gameapi.character.CharacterClass;
 import ch.zli.gameapi.character.CharacterRepository;
+import ch.zli.gameapi.phone.Phone;
+import ch.zli.gameapi.phone.PhoneOS;
+import ch.zli.gameapi.phone.PhoneRepository;
 import ch.zli.gameapi.profile.ProfileRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,12 +25,14 @@ public class GameapiApplication {
 
 	@Bean
 	public CommandLineRunner demo(ProfileRepository profileRepository, AccountRepository accountRepository,
-								  CharacterRepository characterRepository) {
+								  CharacterRepository characterRepository, PhoneRepository phoneRepository) {
 		return (args) -> {
-
-			profileRepository.save(new Profile("profile", "123"));
-			accountRepository.save(new Account("account0@acc.ac", "acc0"));
+			Profile p = new Profile("profile", "123");
+			Account a = new Account("account0@acc.ac", "acc0");
+			profileRepository.save(p);
+			accountRepository.save(a);
 			characterRepository.save(new Character("Mudrock", CharacterClass.DEFENDER));
+			phoneRepository.save(new Phone("Gulugulu", PhoneOS.ANDROID, a ) );
 		};
 	}
 
